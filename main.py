@@ -1,5 +1,5 @@
 import boto3
-import helpers
+import s3_service
 
 # Let's use Amazon S3
 s3 = boto3.resource('s3')
@@ -8,8 +8,8 @@ s3 = boto3.resource('s3')
 for bucket in s3.buckets.all():
     print(bucket.name)
 
-response = helpers.get_object('tutorial/currículo.jpg')
+response = s3_service.get_object('tutorial/currículo.jpg')
 #print("reponse", response)
 
-list = helpers.list_objects()
+list = s3_service.list_objects()
 print("list", list)
