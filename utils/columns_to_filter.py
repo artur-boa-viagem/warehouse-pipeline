@@ -1,0 +1,1 @@
+filters = ['name', 'type1', 'type2', 'pokedex_number', 'height_m', 'weight_kg', 'percentage_male', 'hp', 'attack', 'defense', 'sp_attack', 'sp_defense', 'speed', 'generation', 'is_legendary']

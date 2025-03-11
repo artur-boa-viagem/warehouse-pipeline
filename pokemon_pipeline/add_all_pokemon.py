@@ -1,8 +1,6 @@
 import os
-import json
 import tempfile
 import kagglehub
-import boto3
 from dotenv import load_dotenv
 import sys
 import pandas as pd
@@ -14,13 +12,10 @@ import s3_service
 load_dotenv()
 
 def upload_all_pokemon():
-    """Download Pokemon dataset from Kaggle and upload to S3"""
     temp_dir = tempfile.mkdtemp()
-    print(f"Created temporary directory: {temp_dir}")
     
     try:
         dataset_path = kagglehub.dataset_download('rounakbanik/pokemon')
-        print(f"dataset_path: {dataset_path}")
         
         pokemon_csv_path = os.path.join(dataset_path, "pokemon.csv")
 

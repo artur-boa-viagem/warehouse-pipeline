@@ -35,10 +35,7 @@ def list_objects(prefix='', max_keys=1000):
 def upload_object(obj, key):
     try:
         response = s3.put_object(Bucket=BUCKET_NAME, Key=key, Body=obj)
-        print("response", response)
-        if response == None or response["ResponseMetadata"]["HTTPStatusCode"] < 400:
-            print("Objeto inserido com sucesso")
-        else:
+        if response == None or response["ResponseMetadata"]["HTTPStatusCode"] > 400:
             print(f"Erro ao inserir objeto: {key}")
     except Exception as e:
         print(f"Erro ao inserir objeto: {key}, exceção: {e}")
