@@ -10,12 +10,13 @@ import s3_service
 
 # Load environment variables
 load_dotenv()
+KAGGLE_KEY = os.getenv('KAGGLE_KEY')
 
 def upload_all_pokemon():
     temp_dir = tempfile.mkdtemp()
     
     try:
-        dataset_path = kagglehub.dataset_download('rounakbanik/pokemon')
+        dataset_path = kagglehub.dataset_download(KAGGLE_KEY)
         
         pokemon_csv_path = os.path.join(dataset_path, "pokemon.csv")
 

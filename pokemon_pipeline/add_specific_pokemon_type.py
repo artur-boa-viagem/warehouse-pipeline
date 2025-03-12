@@ -14,7 +14,7 @@ def upload_specific_pokemon_type(pokemon_type):
         if (pokemon_type not in pokemon_types):
             raise ValueError(f"Invalid Pokemon type: {pokemon_type}. Valid types are: {pokemon_types}")
         all_pokemon_obj = s3_service.get_object('all-pokemon/pokemon.csv')
-        all_pokemon_df = pd.read_csv(all_pokemon_obj['Body'])
+        all_pokemon_df = pd.read_csv(all_pokemon_obj)
 
         for index, pokemon in all_pokemon_df.iterrows():
             pokemon_dict = {}
